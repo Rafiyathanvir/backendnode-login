@@ -238,8 +238,8 @@ res.status(201).json({status:201,result})
     }
   });
 
-  as.get("/", (req, res) =>
+  app.get("/", (req, res) =>
   res.send(`Server Active`)
 );
 
-as.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 5000)

@@ -141,7 +141,7 @@ app.post("/forgot-password", async (req, res) => {
         expiresIn: "15m",
       });
       console.log(token)
-      const link = `http://localhost:5000/reset-password/${user._id}/${token}`;
+      const link = `https://login-auth-cued.onrender.com/reset-password/${user._id}/${token}`;
       console.log(link)
       var transporter = nodemailer.createTransport({
         service: "gmail",
@@ -238,6 +238,8 @@ res.status(201).json({status:201,result})
     }
   });
 
-  app.listen(5000,()=>{
-    console.log("localhost connected successfully")
-})
+  as.get("/", (req, res) =>
+  res.send(`Server Active`)
+);
+
+as.listen(process.env.PORT || 5000)
